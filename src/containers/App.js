@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import CardList from '../components/CardList';
 import SearchBox from '../components/SearchBox';
 import Scroll from '../components/Scroll';
+import ErrorBoundry from '../components/ErrorBoundry';
 
 
 // PROPS are input we get. They come out of state. The child cannot change the property.
@@ -44,7 +45,9 @@ class App extends Component { // app owns the state. any Component that has stat
                 <h1>RoboFriends</h1>
                 <SearchBox searchChange={this.onSearchChange}/> 
                 <Scroll>
+                    <ErrorBoundry>
                     <CardList robots={filteredRobots} />
+                    </ErrorBoundry>
                 </Scroll>
             </div>  
         );
